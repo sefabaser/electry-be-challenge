@@ -34,37 +34,37 @@ describe('Books Service', () => {
 
   test('should handle case: no book is stored', () => {
     (<jest.Mock>mockBookService.getAllBooks).mockReturnValueOnce([]);
-    const result = booksService.getBooks({});
+    let result = booksService.getBooks({});
     expect(result).toStrictEqual([]);
   });
 
   test('get all books', () => {
     (<jest.Mock>mockBookService.getAllBooks).mockReturnValueOnce(MockBooks);
-    const result = booksService.getBooks({});
+    let result = booksService.getBooks({});
     expect(result).toStrictEqual(MockBooks);
   });
 
   test('filter with author', () => {
     (<jest.Mock>mockBookService.getAllBooks).mockReturnValueOnce(MockBooks);
-    const result = booksService.getBooks({ author: 'Lohgarra' });
+    let result = booksService.getBooks({ author: 'Lohgarra' });
     expect(result).toStrictEqual([Book1]);
   });
 
   test('filter min price', () => {
     (<jest.Mock>mockBookService.getAllBooks).mockReturnValueOnce(MockBooks);
-    const result = booksService.getBooks({ minPrice: 150 });
+    let result = booksService.getBooks({ minPrice: 150 });
     expect(result).toStrictEqual([Book1]);
   });
 
   test('filter max price', () => {
     (<jest.Mock>mockBookService.getAllBooks).mockReturnValueOnce(MockBooks);
-    const result = booksService.getBooks({ maxPrice: 150 });
+    let result = booksService.getBooks({ maxPrice: 150 });
     expect(result).toStrictEqual([Book2]);
   });
 
   test('filter combination', () => {
     (<jest.Mock>mockBookService.getAllBooks).mockReturnValueOnce(MockBooks);
-    const result = booksService.getBooks({ author: 'Lohgarra', minPrice: 150, maxPrice: 250 });
+    let result = booksService.getBooks({ author: 'Lohgarra', minPrice: 150, maxPrice: 250 });
     expect(result).toStrictEqual([Book1]);
   });
 });

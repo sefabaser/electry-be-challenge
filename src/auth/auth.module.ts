@@ -6,6 +6,7 @@ import { LocalStrategy } from 'src/auth/guards/local.strategy';
 import { JwtStrategy } from 'src/auth/guards/jwt.strategy';
 import { AuthService } from 'src/auth/services/auth.service';
 import { Config } from 'src/config';
+import { AuthController } from 'src/auth/auth.controller';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { Config } from 'src/config';
       signOptions: { expiresIn: Config.loginDuration }
     })
   ],
+  controllers: [AuthController],
   providers: [AuthService, LocalStrategy, JwtStrategy],
   exports: [AuthService]
 })
