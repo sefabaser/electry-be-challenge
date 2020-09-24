@@ -1,7 +1,7 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { Book } from 'src/book/interfaces';
 import { GetBooksRequest } from 'src/books/interfaces';
-import { BooksService } from 'src/books/refactoring/books.service';
+import { BooksService } from 'src/books/services/books.service';
 
 @Controller('books')
 export class BooksController {

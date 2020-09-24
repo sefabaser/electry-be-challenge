@@ -1,6 +1,6 @@
 import { Book } from 'src/book/interfaces';
 import { BookService } from 'src/book/services/book.service';
-import { BooksService } from 'src/books/refactoring/books.service';
+import { BooksService } from 'src/books/services/books.service';
 
 const Book1: Book = {
   title: 'order 66',
