@@ -10,10 +10,10 @@ export class AuthService {
   constructor(private usersService: UsersService, private jwtService: JwtService) {}
 
   async validateUser(username: string, pass: string): Promise<User | false> {
-    let user = await this.usersService.findOne(username);
+    let user = await this.usersService.findUser(username);
     if (user && user.password === pass) {
-      let { password, ...result } = user;
-      return result;
+      let { password, ...userWithoutPassword } = user;
+      return userWithoutPassword;
     }
     return false;
   }
