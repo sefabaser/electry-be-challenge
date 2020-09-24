@@ -1,5 +1,5 @@
-import { BookService } from './book.service';
-import { Book } from './interfaces';
+import { Book } from 'src/book/interfaces';
+import { BookService } from 'src/book/services/book.service';
 
 const Book1: Book = {
   title: 'order 66',
@@ -35,12 +35,12 @@ describe('Book Service', () => {
   });
 
   test('get all books', () => {
-    const result = bookService.getAllBooks();
+    let result = bookService.getAllBooks();
     expect(result).toStrictEqual([Book1, Book2]);
   });
 
   test('get book', () => {
-    const result = bookService.getBook('Lohgarra', 'order 66');
+    let result = bookService.getBook('Lohgarra', 'order 66');
     expect(result).toStrictEqual(Book1);
   });
 
@@ -49,10 +49,10 @@ describe('Book Service', () => {
   });
 
   test('create book', () => {
-    const result = bookService.createBook(Book3);
+    let result = bookService.createBook(Book3);
     expect(result).toStrictEqual(Book3);
 
-    const allBooks = bookService.getAllBooks();
+    let allBooks = bookService.getAllBooks();
     expect(allBooks).toStrictEqual([Book1, Book2, Book3]);
   });
 
@@ -61,7 +61,7 @@ describe('Book Service', () => {
   });
 
   test('update book', () => {
-    const newBook2 = {
+    let newBook2 = {
       title: 'path of darkness',
       description: 'Something something something dark side, something something something complete',
       coverImage: 'http://something.png',
@@ -69,10 +69,10 @@ describe('Book Service', () => {
       author: 'Jiprirr'
     };
 
-    const result = bookService.updateBook(newBook2);
+    let result = bookService.updateBook(newBook2);
     expect(result).toStrictEqual(newBook2);
 
-    const allBooks = bookService.getAllBooks();
+    let allBooks = bookService.getAllBooks();
     expect(allBooks).toStrictEqual([Book1, newBook2]);
   });
 
@@ -81,10 +81,10 @@ describe('Book Service', () => {
   });
 
   test('delete book', () => {
-    const result = bookService.deleteBook(Book2);
+    let result = bookService.deleteBook(Book2);
     expect(result).toStrictEqual(Book2);
 
-    const allBooks = bookService.getAllBooks();
+    let allBooks = bookService.getAllBooks();
     expect(allBooks).toStrictEqual([Book1]);
   });
 

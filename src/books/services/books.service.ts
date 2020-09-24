@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { Book } from '../book/interfaces';
-import { BookService } from '../book/book.service';
-import { BooksSearchQuery as GetBooksRequest } from '../books/interfaces';
+import { Book } from 'src/book/interfaces';
+import { GetBooksRequest } from 'src/books/interfaces';
+import { BookService } from 'src/book/services/book.service';
 
 @Injectable()
 export class BooksService {

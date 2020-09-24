@@ -1,5 +1,7 @@
 ## Endpoints
-- TODO
+- POST /auth/login
+- GET /books
+- GET, POST, PUT, DELETE /book
 
 ## Installation
 

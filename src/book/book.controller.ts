@@ -1,7 +1,7 @@
 import { Controller, UseGuards, Get, Request, Post, Query, Put, Delete } from '@nestjs/common';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
-import { BookService } from 'src/book/book.service';
 import { Book, GetBookRequest } from 'src/book/interfaces';
+import { BookService } from 'src/book/services/book.service';
 
 @Controller('book')
 export class BookController {
