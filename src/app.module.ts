@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AuthModule } from './auth/auth.module';
-import { UsersModule } from './users/users.module';
-import { BookModule } from './book/book.module';
-import { BooksModule } from './books/books.module';
+import { AppController } from 'src/app.controller';
+import { AuthModule } from 'src/auth/auth.module';
+import { BookModule } from 'src/book/book.module';
+import { BooksModule } from 'src/books/books.module';
+import { UsersModule } from 'src/users/users.module';
 
 @Module({
   imports: [AuthModule, UsersModule, BookModule, BooksModule],

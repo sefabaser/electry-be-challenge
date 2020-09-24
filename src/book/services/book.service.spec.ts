@@ -1,5 +1,5 @@
-import { BookService } from './book.service';
-import { Book } from './interfaces';
+import { Book } from 'src/book/interfaces';
+import { BookService } from 'src/book/services/book.service';
 
 const Book1: Book = {
   title: 'order 66',

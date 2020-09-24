@@ -1,6 +1,6 @@
-import { BooksService } from './books.service';
-import { BookService } from '../book/book.service';
-import { Book } from '../book/interfaces';
+import { Book } from 'src/book/interfaces';
+import { BookService } from 'src/book/services/book.service';
+import { BooksService } from 'src/books/books.service';
 
 const Book1: Book = {
   title: 'order 66',
