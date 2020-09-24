@@ -4,7 +4,7 @@ import { Request } from 'express';
 import { LocalAuthGuard } from 'src/auth/guards/local-auth.guard';
 import { AuthService } from 'src/auth/services/auth.service';
 import { LoginResponse } from 'src/auth/_interfaces';
-import { User } from 'src/users/interfaces';
+import { User } from 'src/users/_interfaces';
 
 @Controller('auth')
 export class AuthController {

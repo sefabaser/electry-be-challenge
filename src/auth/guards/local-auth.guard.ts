@@ -4,7 +4,7 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 
 import { Strategy } from 'passport-local';
 import { AuthService } from 'src/auth/services/auth.service';
-import { User } from 'src/users/interfaces';
+import { User } from 'src/users/_interfaces';
 
 @Injectable()
 export class LocalAuthGuard extends AuthGuard('local') {}
