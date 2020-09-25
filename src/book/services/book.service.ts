@@ -1,5 +1,5 @@
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
-import { Book } from 'src/book/interfaces';
+import { Book } from 'src/book/_interfaces';
 
 @Injectable()
 export class BookService {

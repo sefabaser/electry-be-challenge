@@ -9,3 +9,5 @@ export interface Book {
   coverImage: string;
   price: number;
 }
+
+export type BookQuery = Omit<Book, 'author'>;

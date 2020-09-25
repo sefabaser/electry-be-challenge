@@ -1,4 +1,4 @@
-import { Book } from 'src/book/interfaces';
+import { Book } from 'src/book/_interfaces';
 import { BookService } from 'src/book/services/book.service';
 import { BooksService } from 'src/books/services/books.service';
 
