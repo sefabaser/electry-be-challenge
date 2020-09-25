@@ -2,9 +2,9 @@ import { Controller, UseGuards, Get, Req, Post, Query, Put, Delete } from '@nest
 import { Request } from 'express';
 
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
-import { Book, BookDefinitionRequest, GetBookRequest } from 'src/book/_interfaces';
+import { Book, BookDefinitionRequest, GetBookRequest } from 'src/book/_models';
 import { BookService } from 'src/book/services/book.service';
-import { User } from 'src/users/_interfaces';
+import { User } from 'src/users/_models';
 
 @Controller('book')
 export class BookController {
