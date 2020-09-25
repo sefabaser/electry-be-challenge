@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+
 import { Book } from 'src/book/_models';
 import { GetBooksRequest } from 'src/books/_models';
 import { BookService } from 'src/book/services/book.service';
@@ -10,6 +11,7 @@ export class BooksService {
   getBooks(query: GetBooksRequest): Book[] {
     let books = this.bookService.getAllBooks();
 
+    // TODO: after having db, move filtering to the db query
     if (query.author) {
       books = books.filter(book => book.author === query.author);
     }
