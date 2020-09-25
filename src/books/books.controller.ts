@@ -9,7 +9,6 @@ export class BooksController {
 
   @Get()
   getBooks(@Query() query: GetBooksRequest): Book[] {
-    // TODO: validation
     return this.booksService.getBooks(query);
   }
 }
