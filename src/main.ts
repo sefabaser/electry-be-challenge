@@ -6,6 +6,7 @@ async function bootstrap() {
   let app = await NestFactory.create(AppModule);
   app.useGlobalPipes(
     new ValidationPipe({
+      transform: true,
       whitelist: true,
       forbidNonWhitelisted: true
     })
