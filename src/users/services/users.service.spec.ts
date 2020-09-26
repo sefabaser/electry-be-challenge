@@ -15,13 +15,19 @@ describe('Book Service', () => {
     (<any>usersService).users = [SampleUser];
   });
 
-  test('find existing user', () => {
-    let result = usersService.findUser('Lohgarra');
-    expect(result).toStrictEqual(SampleUser);
+  test('valid user', () => {
+    let result = usersService.validateAndReturnUser('Lohgarra', 'wookieSidearm');
+    let { password, ...userWithoutPassword } = SampleUser;
+    expect(result).toStrictEqual(userWithoutPassword);
+  });
+
+  test('wrong password', () => {
+    let result = usersService.validateAndReturnUser('Lohgarra', 'wrong');
+    expect(result).toStrictEqual(undefined);
   });
 
   test('non-existing user', () => {
-    let result = usersService.findUser('NonExistingUser');
+    let result = usersService.validateAndReturnUser('NonExistingUser', 'NonExistingPassword');
     expect(result).toStrictEqual(undefined);
   });
 });
