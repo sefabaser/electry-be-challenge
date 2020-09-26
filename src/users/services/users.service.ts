@@ -26,7 +26,11 @@ export class UsersService {
     ];
   }
 
-  async findUser(username: string): Promise<User | void> {
-    return this.users.find(user => user.username === username);
+  validateAndReturnUser(username: string, pass: string): Omit<User, 'password'> {
+    let user = this.users.find(user => user.username === username);
+    if (user && user.password === pass) {
+      let { password, ...userWithoutPassword } = user;
+      return userWithoutPassword;
+    }
   }
 }
