@@ -6,7 +6,7 @@ const SampleUser = {
   password: 'wookieSidearm'
 };
 
-describe('Book Service', () => {
+describe('Users Service', () => {
   let usersService: UsersService;
 
   beforeEach(() => {
