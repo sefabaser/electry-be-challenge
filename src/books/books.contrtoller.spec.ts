@@ -3,9 +3,9 @@ import { Test, TestingModule } from '@nestjs/testing';
 import * as request from 'supertest';
 
 import { AppModule } from 'src/app.module';
-import { JwtAuthGuard, JwtStrategy } from 'src/auth/guards/jwt-auth.guard';
 import { BooksService } from 'src/books/services/books.service';
 import { Book } from 'src/book/_models';
+import { UnitTestHelper } from 'src/utilities/unit-test.helper';
 
 const Book1: Book = {
   title: 'order 66',
@@ -17,23 +17,15 @@ const Book1: Book = {
 
 const MockBooks: Book[] = [Book1];
 
-describe('FlightsController (e2e)', () => {
+describe('Books Controller', () => {
   let app: INestApplication;
 
   beforeEach(async () => {
-    const moduleFixture: TestingModule = await Test.createTestingModule({
-      imports: [AppModule]
-    })
-      .overrideProvider(JwtStrategy)
-      .useValue({
-        vaildate: () => {
-          userId: 1;
-          username: 'TestUser';
-          password: 'TestPass';
-        }
+    let moduleFixture: TestingModule = await UnitTestHelper.overrideAuth(
+      Test.createTestingModule({
+        imports: [AppModule]
       })
-      .overrideGuard(JwtAuthGuard)
-      .useValue({ canActivate: () => true })
+    )
       .overrideProvider(BooksService)
       .useValue({ getBooks: () => MockBooks })
       .compile();
