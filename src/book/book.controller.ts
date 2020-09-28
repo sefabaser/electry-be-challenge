@@ -12,9 +12,9 @@ export class BookController {
 
   @Get()
   @UseGuards(JwtAuthGuard)
-  getBook(@Req() req: Request, @Query() query: GetBookRequest): Book {
+  getBook(@Req() req: Request, @Query() getBookRequest: GetBookRequest): Book {
     let user = <User>req.user;
-    return this.bookService.getBook(user.username, query.title);
+    return this.bookService.getBook(user.username, getBookRequest.title);
   }
 
   @Post()

@@ -9,7 +9,7 @@ export class BooksController {
   constructor(private booksService: BooksService) {}
 
   @Get()
-  getBooks(@Query() query: GetBooksRequest): Book[] {
-    return this.booksService.getBooks(query);
+  getBooks(@Query() getBooksRequest: GetBooksRequest): Book[] {
+    return this.booksService.getBooks(getBooksRequest);
   }
 }
