@@ -30,8 +30,7 @@ describe('Books Controller', () => {
       .useValue({ getBooks: () => MockBooks })
       .compile();
 
-    app = moduleFixture.createNestApplication();
-    await app.init();
+    app = await UnitTestHelper.initTestApp(moduleFixture);
   });
 
   it('GET: /books', () => {

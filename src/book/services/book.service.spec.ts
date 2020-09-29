@@ -81,7 +81,7 @@ describe('Book Service', () => {
   });
 
   test('delete book', () => {
-    let result = bookService.deleteBook(Book2);
+    let result = bookService.deleteBook(Book2.author, Book2.title);
     expect(result).toStrictEqual(Book2);
 
     let allBooks = bookService.getAllBooks();
@@ -89,6 +89,6 @@ describe('Book Service', () => {
   });
 
   test('delete book should throw error if book is not exists', () => {
-    expect(() => bookService.deleteBook(Book3)).toThrow('No book found');
+    expect(() => bookService.deleteBook(Book3.author, Book3.title)).toThrow('No book found');
   });
 });
