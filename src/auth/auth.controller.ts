@@ -9,6 +9,7 @@ export class AuthController {
 
   @Post('login')
   async login(@Query() loginRequest: LoginRequest): Promise<LoginResponse> {
+    // TODO: encrypt password
     return this.authService.login(loginRequest);
   }
 }
