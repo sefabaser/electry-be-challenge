@@ -19,9 +19,9 @@ export class BookController {
 
   @Post()
   @UseGuards(JwtAuthGuard)
-  postBook(@Req() req: Request, @Query() bookDefinitionRequest: BookDefinitionRequest): void {
+  postBook(@Req() req: Request, @Query() bookDefinitionRequest: BookDefinitionRequest): Book {
     let book = this.mapBookDefinitionToBook(req, bookDefinitionRequest);
-    this.bookService.createBook(book);
+    return this.bookService.createBook(book);
   }
 
   @Put()
