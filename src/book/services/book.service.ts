@@ -49,8 +49,8 @@ export class BookService {
     return book;
   }
 
-  deleteBook(book: Book): Book {
-    let index = this.books.findIndex(item => item.author === book.author && item.title === book.title);
+  deleteBook(author: string, title: string): Book {
+    let index = this.books.findIndex(item => item.author === author && item.title === title);
     if (index === -1) {
       throw new HttpException('No book found', HttpStatus.BAD_REQUEST);
     }
