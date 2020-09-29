@@ -1,7 +1,7 @@
 import { Type } from 'class-transformer';
 import { IsNumber, IsString } from 'class-validator';
 
-export class GetBookRequest {
+export class SelectBookRequest {
   @IsString()
   title: string;
 }

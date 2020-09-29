@@ -2,7 +2,7 @@ import { Controller, UseGuards, Get, Req, Post, Query, Put, Delete } from '@nest
 import { Request } from 'express';
 
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
-import { Book, BookDefinitionRequest, GetBookRequest } from 'src/book/_models';
+import { Book, BookDefinitionRequest, SelectBookRequest } from 'src/book/_models';
 import { BookService } from 'src/book/services/book.service';
 import { User } from 'src/users/_models';
 
@@ -12,9 +12,9 @@ export class BookController {
 
   @Get()
   @UseGuards(JwtAuthGuard)
-  getBook(@Req() req: Request, @Query() getBookRequest: GetBookRequest): Book {
+  getBook(@Req() req: Request, @Query() selectBookRequest: SelectBookRequest): Book {
     let user = <User>req.user;
-    return this.bookService.getBook(user.username, getBookRequest.title);
+    return this.bookService.getBook(user.username, selectBookRequest.title);
   }
 
   @Post()
@@ -33,9 +33,9 @@ export class BookController {
 
   @Delete()
   @UseGuards(JwtAuthGuard)
-  deleteBook(@Req() req: Request, @Query() bookDefinitionRequest: BookDefinitionRequest): Book {
-    let book = this.mapBookDefinitionToBook(req, bookDefinitionRequest);
-    return this.bookService.deleteBook(book);
+  deleteBook(@Req() req: Request, @Query() selectBookRequest: SelectBookRequest): Book {
+    let user = <User>req.user;
+    return this.bookService.deleteBook(user.username, selectBookRequest.title);
   }
 
   private mapBookDefinitionToBook(req: Request, bookDefinitionRequest: BookDefinitionRequest): Book {

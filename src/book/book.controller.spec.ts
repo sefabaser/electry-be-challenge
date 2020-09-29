@@ -75,4 +75,12 @@ describe('Book Controller', () => {
         author: MockUser.username
       });
   });
+
+  it('DELETE: /book', () => {
+    return request(app.getHttpServer())
+      .delete('/book')
+      .query({ title: 'order 66' })
+      .expect(200)
+      .expect(Book1);
+  });
 });
